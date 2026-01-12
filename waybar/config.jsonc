@@ -1,0 +1,32 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 6,
+
+    "include": [
+        "$HOME/.config/waybar/customs/separator.jsonc",
+        "$HOME/.config/waybar/customs/powermenu.jsonc",
+        "$HOME/.config/waybar/groups/volume_drawer.jsonc",
+        "$HOME/.config/waybar/groups/hardware_drawer.jsonc",
+        "$HOME/.config/waybar/modules/workspaces.jsonc",
+        "$HOME/.config/waybar/modules/tray.jsonc",
+        "$HOME/.config/waybar/modules/mpris.jsonc",
+        "$HOME/.config/waybar/modules/clock.jsonc",
+        "$HOME/.config/waybar/modules/memory.jsonc",
+        "$HOME/.config/waybar/modules/network.jsonc",
+    ],
+
+    "modules-left": ["niri/workspaces", "tray", "mpris"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "group/volume_drawer",
+        "custom/separator",
+        "memory",
+        "group/hardware_drawer",
+        "custom/separator",
+        "network",
+        "custom/powermenu",
+    ],
+}

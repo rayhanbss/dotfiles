@@ -1,0 +1,13 @@
+// -*- mode: jsonc -*-
+{
+    "network": {
+        "interface": "wlp4s0",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip": true,
+        "tooltip-format": "{ipaddr}\n{ssid} ({signalStrength}%)",
+        "on-click": "nm-connection-editor",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    },
+}

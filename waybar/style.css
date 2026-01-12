@@ -1,0 +1,78 @@
+@import "colors.css";
+
+* {
+    font-family: "GeistMono Nerd Font Propo";
+    font-size: 12px;
+}
+
+window#waybar {
+    background-color: @nord0;
+    border-bottom: 0px solid @nord9;
+    color: @nord6;
+}
+
+tooltip {
+    color: @nord6;
+    background-color: @nord0;
+    border: 1px solid @nord0;
+    border-radius: 0 0 8px 8px;
+}
+
+.modules-left,
+.modules-right {
+    margin: 0px 8px;
+}
+
+/* Module Left */
+#clock {
+    padding: 0 6px;
+    font-weight: 600;
+}
+#tray {
+    padding: 0 6px;
+}
+#mpris {
+    font-size: 10px;
+    padding: 0 6px;
+}
+
+/* Module Center*/
+#workspaces button {
+    margin: 10px 2px;
+    min-height: 0;
+    min-width: 8px;
+    border-radius: 16px;
+    background-color: @nord3;
+    padding: 0;
+    transition: padding 0.2s ease-in-out;
+}
+
+#workspaces button label {
+    font-size: 0;
+}
+
+#workspaces button.active {
+    background-color: @nord9;
+    padding: 0 12px;
+}
+
+#workspaces button:hover {
+    background-color: @nord9;
+}
+
+/* Module Right */
+#custom-powermenu,
+#network {
+    padding: 0 6px;
+}
+
+#custom-audio,
+#custom-mic {
+    min-width: 120px;
+    padding: 0 6px;
+}
+
+#custom-powermenu:hover,
+#network:hover {
+    color: @nord9;
+}

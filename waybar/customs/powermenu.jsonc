@@ -1,0 +1,8 @@
+// -*- mode: jsonc -*-
+{
+    "custom/powermenu": {
+        "format": "✱",
+        "tooltip": false,
+        "on-click": "",
+    },
+}

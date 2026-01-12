@@ -1,0 +1,6 @@
+// -*- mode: jsonc -*-
+{
+    "niri/workspaces": {
+        "format": "",
+    },
+}

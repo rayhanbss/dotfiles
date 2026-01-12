@@ -1,0 +1,20 @@
+/* Polar Night */
+@define-color nord0 rgba(29, 30, 33, 1);
+@define-color nord1 rgba(59, 66, 82, 1);
+@define-color nord2 rgba(67, 76, 94, 1);
+@define-color nord3 rgba(76, 86, 106, 1);
+/* Snow storm */
+@define-color nord4 rgba(216, 222, 233, 1);
+@define-color nord5 rgba(229, 233, 240, 1);
+@define-color nord6 rgba(236, 239, 244, 1);
+/* Frost */
+@define-color nord7 rgba(143, 188, 187, 1);
+@define-color nord8 rgba(136, 192, 208, 1);
+@define-color nord9 rgba(129, 161, 193, 1);
+@define-color nord10 rgba(94, 129, 172, 1);
+/* Aurora */
+@define-color nord11 rgba(191, 97, 106, 1);
+@define-color nord12 rgba(208, 135, 112, 1);
+@define-color nord13 rgba(235, 203, 139, 1);
+@define-color nord14 rgba(163, 190, 140, 1);
+@define-color nord15 rgba(180, 142, 173, 1);

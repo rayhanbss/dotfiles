@@ -1,0 +1,18 @@
+// -*- mode: jsonc -*-
+{
+    "include": [
+        "$HOME/.config/waybar/customs/audio.jsonc",
+        "$HOME/.config/waybar/customs/separator.jsonc",
+        "$HOME/.config/waybar/customs/mic.jsonc",
+    ],
+    "group/volume_drawer": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "custom/audio",
+            "transition-left-to-right": false,
+        },
+        "click-to-reveal": true,
+        "modules": ["custom/audio", "custom/mic", "custom/separator"],
+    },
+}

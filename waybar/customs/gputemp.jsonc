@@ -1,0 +1,9 @@
+// -*- mode: jsonc -*-
+{
+    "custom/gputemp": {
+        "exec": "~/.config/waybar/scripts/gputemp.sh",
+        "return-type": "json",
+        "interval": 1,
+        "align": 1,
+    },
+}

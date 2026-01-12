@@ -1,0 +1,8 @@
+// -*- mode: jsonc -*-
+{
+    "custom/notifications": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/notification_center.sh",
+    },
+}

@@ -1,0 +1,13 @@
+// -*- mode: jsonc -*-
+{
+    "custom/audio": {
+        "exec": "~/.config/waybar/scripts/audio.sh",
+        "return-type": "json",
+        "align": 1,
+        "interval": 1,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-",
+    },
+}

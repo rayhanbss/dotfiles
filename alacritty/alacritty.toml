@@ -1,0 +1,15 @@
+general.import = ["colors.toml"]
+
+[window]
+opacity = 0.8
+padding.x = 32
+padding.y = 24
+decorations = "Full"
+decorations_theme_variant = "Dark"
+
+[font]
+normal.family = "GeistMono Nerd Font Mono"
+bold.family = "GeistMono Nerd Font Mono"
+italic.family = "GeistMono Nerd Font Mono"
+bold_italic.family = "GeistMono Nerd Font Mono"
+size = 11.0

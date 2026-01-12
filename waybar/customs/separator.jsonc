@@ -1,0 +1,7 @@
+// -*- mode: jsonc -*-
+{
+    "custom/separator": {
+        "format": "|",
+        "tooltip": false,
+    },
+}
