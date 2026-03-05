@@ -1,0 +1,49 @@
+[bar]
+position = "top"
+size = 24
+border_radius = 0
+screen_margin = 0
+background_opacity = 1.0
+background_color = "#111111"
+
+[widgets]
+left = ["workspaces", "window_title"]
+center = ["media", "clock"]
+right = [
+  "tray",
+  "updates",
+ "memory",
+  "quick_settings",
+  "battery",
+  "notifications",
+]
+border_radius = 60
+background_opacity = 1.0
+
+# Per-widget options use [widgets.<name>] sections.
+# Example:
+#   [widgets.clock]
+#   format = "%H:%M"
+#
+#   [widgets.battery]
+#   disabled = true
+#
+# See documentation for all widget options.
+
+[theme]
+mode = "dark" # "auto", "dark", "light", "gtk"
+#accent = "#adabe0" # "gtk", "none", or hex color
+
+[theme.icons]
+theme = "material" # "material" or "gtk"
+weight = 400       # Material icon stroke weight (100-700)
+
+[osd]
+enabled = true
+position = "bottom" # "bottom", "top", "left", "right"
+
+[advanced]
+# compositor = "auto"  # "auto", "hyprland", "niri", "mango"
+
+# Custom CSS: place style.css in same directory as this file.
+# See documentation for available CSS variables and classes.

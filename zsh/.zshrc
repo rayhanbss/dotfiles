@@ -34,13 +34,13 @@ zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-you-should-use
 
 # Add snippets
-zinit snippet OMZP::git
-zinit snippet OMZP::npm
-zinit snippet OMZP::nvm
-zinit snippet OMZP::sudo
-zinit snippet OMZP::docker
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::docker-compose
+# zinit snippet OMZP::git
+# zinit snippet OMZP::npm
+# zinit snippet OMZP::nvm
+# zinit snippet OMZP::sudo
+# zinit snippet OMZP::docker
+# zinit snippet OMZP::archlinux
+# zinit snippet OMZP::docker-compose
 zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -52,7 +52,8 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # History
-HISTSIZE=10000
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE=~/.zsh_history
 HISTDUP=erase
 setopt append_history
@@ -77,3 +78,4 @@ alias ll="eza -lhas ext --icons=always"
 alias cat="bat"
 alias dot="~/dotfiles/dotfiles.sh"
 alias cl="clear"
+alias zed="zeditor"

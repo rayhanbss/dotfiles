@@ -6,7 +6,6 @@ input {
     }
 
     touchpad {
-        // off
         tap
         natural-scroll
     }
@@ -16,6 +15,10 @@ input {
 
     trackpoint {
     }
+    tablet {
+        map-to-output "eDP-1"
+    }
+
     warp-mouse-to-focus
 }
 
@@ -23,13 +26,14 @@ output "eDP-1" {
     mode "1920x1080@144.030"
     scale 1
     transform "normal"
-    position x=1280 y=0
+    position x=0 y=0
 }
 
 layout {
     gaps 0
-    background-color "transparent"
-    center-focused-column "never"
+    background-color "#111111"
+    center-focused-column "on-overflow"
+    always-center-single-column
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
@@ -40,27 +44,23 @@ layout {
 
     focus-ring {
         off
-        width 1
-        active-color "#7fc8ff"
-        inactive-color "#505050"
+        width 2
+        active-color "#FCFCFC"
+        inactive-color "#656565"
     }
 
     border {
         // off
         width 1
-        active-color "#7fc8ff"
-        inactive-color "#505050"
+        active-color "#656565"
+        inactive-color "#111111"
         urgent-color "#9b0000"
     }
 }
 
 
-
-spawn-at-startup "mako"
-spawn-at-startup "waybar"
-spawn-at-startup "swww-daemon"
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+spawn-at-startup "vibepanel"
+spawn-at-startup "vicinae" "server"
 
 hotkey-overlay {
     skip-at-startup
@@ -71,31 +71,69 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // off
-    // slowdown 3.0
+    workspace-switch {
+        spring damping-ratio=0.80 stiffness=523 epsilon=0.0001
+    }
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+    horizontal-view-movement {
+        spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
+    }
+    window-movement {
+        spring damping-ratio=0.75 stiffness=323 epsilon=0.0001
+    }
+    window-resize {
+        spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
+    }
+    config-notification-open-close {
+        spring damping-ratio=0.65 stiffness=923 epsilon=0.001
+    }
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+    overview-open-close {
+        spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
+    }
 }
 
 window-rule {
+    opacity 1.0
+}
+window-rule {
     match title="^Picture in picture$"
+    match title="^Zed — Settings$"
     open-floating true
 }
-
 window-rule {
     match app-id=r#"^com-evacipated-cardcrawl-modthespire-Loader"#
     open-floating true
 }
-
 window-rule {
     match app-id=r#"^mpv"#
+    match app-id=r#"^steam"#
+    match app-id=r#"^brave-browser"#
     open-maximized true
 }
-
 window-rule {
-    match title="^Wine Desktop$"
-    open-fullscreen true
-    open-maximized-to-edges true
+    match app-id=r#"^vicinae"#
+    focus-ring {
+        off
+    }
+    border {
+        off
+    }
 }
-
+// window-rule {
+//     match app-id=r#"^steam_app_0"#
+//     open-maximized-to-edges true
+// }
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
@@ -113,14 +151,21 @@ window-rule {
 }
 
 layer-rule {
-  match namespace="^swww-daemon*"
+  match namespace="^wallpapers*"
   place-within-backdrop true
 }
 
 overview {
+  zoom 0.5
   workspace-shadow {
     off
   }
+}
+
+gestures {
+    hot-corners {
+         off
+    }
 }
 
 
@@ -157,17 +202,17 @@ recent-windows {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open Alacritty" { spawn "alacritty"; }
     Mod+B hotkey-overlay-title="Open Brave" { spawn "brave"; }
+    Mod+Return hotkey-overlay-title="Open Kitty" { spawn "kitty"; }
     Mod+E hotkey-overlay-title="Open Nautilus" { spawn "nautilus"; }
-    
-    Mod+Space hotkey-overlay-title="Launch Rofi" { spawn-sh "rofi -show drun || pkill rofi"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "swaylock"; }
 
-    Mod+Shift+B hotkey-overlay-title="Toggle Waybar" { spawn-sh "~/.config/niri/scripts/toggle-waybar.sh"; }
-    Mod+R hotkey-overlay-title="Refresh Waybar" { spawn-sh "~/.config/waybar/scripts/launch.sh"; }
+    Mod+W repeat=false { close-window; }
+    Mod+Shift+Space repeat=false { toggle-overview; }
+    Mod+Space repeat=false hotkey-overlay-title="App Launcher" { spawn "vicinae" "toggle"; }
+    Mod+P repeat=false hotkey-overlay-title="Power Menu" { spawn-sh "vicinae 'vicinae://extensions/vicinae/power'"; }
 
 
+    // Function Keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
@@ -181,10 +226,7 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
-    Mod+Shift+Space repeat=false { toggle-overview; }
-
-    Mod+W repeat=false { close-window; }
-
+    // Navigation
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
@@ -312,5 +354,7 @@ binds {
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
-    Mod+Shift+P { power-off-monitors; }
+    // Mod+Shift+P { power-off-monitors; }
+    XF86Launch2 { spawn-sh "qs -c grid-shell ipc call sysMonitor toggle"; }
+    Shift+XF86Launch2 { spawn-sh "~/.config/niri/scripts/fan-toggle.sh"; }
 }
