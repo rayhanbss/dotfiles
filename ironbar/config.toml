@@ -1,0 +1,31 @@
+position = "top"
+height = 20
+
+[[start]]
+type = "workspaces"
+
+[[center]]
+type = "clock"
+format = "%H:%M"
+justify = "center"
+
+[[end]]
+type = "sys_info"
+format = [
+    "{cpu_percent}% ",
+    "{memory_percent}% ",
+]
+
+[end.interval]
+cpu = 1
+
+[[end]]
+type = "tray"
+on_click_left = "menu"
+on_click_right = "default"
+justify = "center"
+
+[[center]]
+type = "volume"
+sink_slider_orientation = "horizontal"
+source_slider_orientation = "horizontal"

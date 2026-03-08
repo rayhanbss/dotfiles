@@ -9,6 +9,8 @@ DOTFILES_DIR="$HOME/dotfiles"
 
 # .config list
 DOT_CONFIGS=(
+    "walker"
+    "ironbar"
     "zed"
     "vibepanel"
     "kitty"
@@ -92,6 +94,8 @@ add_config() {
 
         # Add to this script file
         sed -i "/DOT_CONFIGS=(/a\\    \"$new_config\"" "$0"
+    "walker"
+    "ironbar"
     "zed"
     "vibepanel"
     "kitty"

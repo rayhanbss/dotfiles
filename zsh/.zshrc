@@ -38,7 +38,7 @@ zinit light MichaelAquilina/zsh-you-should-use
 # zinit snippet OMZP::npm
 # zinit snippet OMZP::nvm
 # zinit snippet OMZP::sudo
-# zinit snippet OMZP::docker
+zinit snippet OMZP::docker
 # zinit snippet OMZP::archlinux
 # zinit snippet OMZP::docker-compose
 zinit snippet OMZP::command-not-found
@@ -79,3 +79,7 @@ alias cat="bat"
 alias dot="~/dotfiles/dotfiles.sh"
 alias cl="clear"
 alias zed="zeditor"
+alias bun="bun --bun"
+alias bunx="bunx --bun"
+alias docker-engine start "sudo systemctl start docker"
+alias docker-engine stop  "sudo systemctl stop docker"

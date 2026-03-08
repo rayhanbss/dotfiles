@@ -30,8 +30,8 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 0
-    background-color "#111111"
+    gaps 8
+    background-color "transparent"
     center-focused-column "on-overflow"
     always-center-single-column
     preset-column-widths {
@@ -58,8 +58,20 @@ layout {
     }
 }
 
+// Wallpaper
+spawn-at-startup "swaybg"
 
-spawn-at-startup "vibepanel"
+// Bar
+spawn-at-startup "waybar"
+
+// Notification
+spawn-at-startup "mako"
+
+// App launcher
+spawn-at-startup "elephant"
+spawn-at-startup "walker" "--gapplication-service"
+
+
 spawn-at-startup "vicinae" "server"
 
 hotkey-overlay {
@@ -200,15 +212,17 @@ recent-windows {
 }
 
 binds {
+    // Keybinds overview
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    // App keybinds
     Mod+B hotkey-overlay-title="Open Brave" { spawn "brave"; }
     Mod+Return hotkey-overlay-title="Open Kitty" { spawn "kitty"; }
     Mod+E hotkey-overlay-title="Open Nautilus" { spawn "nautilus"; }
 
     Mod+W repeat=false { close-window; }
     Mod+Shift+Space repeat=false { toggle-overview; }
-    Mod+Space repeat=false hotkey-overlay-title="App Launcher" { spawn "vicinae" "toggle"; }
+    Mod+Space repeat=false hotkey-overlay-title="App Launcher" { spawn "walker"; }
     Mod+P repeat=false hotkey-overlay-title="Power Menu" { spawn-sh "vicinae 'vicinae://extensions/vicinae/power'"; }
 
 
