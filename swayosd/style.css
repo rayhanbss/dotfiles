@@ -1,0 +1,49 @@
+* {
+    font-family: "GeistMono Nerd Font Propo";
+    font-size: 11px;
+}
+window {
+    border-radius: 0px;
+    border: 1px solid #656565;
+    background: #111111;
+}
+box {
+    margin: 4px 8px;
+}
+image {
+    transform: scale(0.6);
+    margin: 0px;
+    padding: 0px;
+}
+label {
+    color: #fcfcfc;
+    margin: 0px;
+    padding: 0px;
+}
+progressbar,
+segmentedprogress {
+    min-height: 4px;
+    border-radius: 0px;
+    background: transparent;
+    border: none;
+}
+trough,
+segment {
+    min-height: inherit;
+    border-radius: 0px;
+    border: none;
+    background: #656565;
+}
+progress,
+segment.active {
+    min-height: inherit;
+    border-radius: 0px;
+    border: none;
+    background: #fcfcfc;
+}
+segment {
+    margin-left: 8px;
+    &:first-child {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,24 @@
+[[entries]]
+label = "⏻ Shutdown"
+exec = "systemctl poweroff"
+icon = "system-shutdown"
+
+[[entries]]
+label = "↺ Reboot"
+exec = "systemctl reboot"
+icon = "system-reboot"
+
+[[entries]]
+label = "⏾ Suspend"
+exec = "systemctl suspend"
+icon = "system-suspend"
+
+[[entries]]
+label = " Lock"
+exec = "hyprlock"
+icon = "system-lock-screen"
+
+[[entries]]
+label = "󰍃 Logout"
+exec = "hyprctl dispatch exit"
+icon = "system-log-out"

@@ -1,4 +1,7 @@
 {
+    "prettier": {
+        "allowed": true
+    },
     "show_whitespaces": "selection",
     "indent_guides": {
         "background_coloring": "disabled",
@@ -126,7 +129,7 @@
     "max_tabs": 1,
     "use_system_window_tabs": false,
     "agent": {
-        "default_profile": "write",
+        "default_profile": "ask",
         "dock": "left",
         "tool_permissions": {
             "tools": {
@@ -139,8 +142,9 @@
             },
         },
         "default_model": {
+            "enable_thinking": false,
             "provider": "copilot_chat",
-            "model": "claude-opus-4.6",
+            "model": "gpt-5.3-codex",
         },
         "favorite_models": [],
         "model_parameters": [],
@@ -189,7 +193,7 @@
     "theme": {
         "mode": "dark",
         "light": "One Light",
-        "dark": "One Dark",
+        "dark": "Vercel Dark",
     },
     "theme_overrides": {
         "One Dark": {

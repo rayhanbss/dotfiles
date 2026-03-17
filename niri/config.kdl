@@ -28,6 +28,12 @@ output "eDP-1" {
     transform "normal"
     position x=0 y=0
 }
+output "HDMI-A-1" {
+    mode "1920x1080@144.030"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
 
 layout {
     gaps 8
@@ -59,18 +65,18 @@ layout {
 }
 
 // Wallpaper
-spawn-at-startup "swaybg"
+spawn-at-startup "swaybg" "-i" "Pictures/Wallpapers/Wallpaper.png"
 
 // Bar
 spawn-at-startup "waybar"
 
-// Notification
-spawn-at-startup "mako"
+// Notification and OSD
+spawn-at-startup "dunst"
+spawn-at-startup "swayosd-server"
 
 // App launcher
 spawn-at-startup "elephant"
-spawn-at-startup "walker" "--gapplication-service"
-
+spawn-sh-at-startup "walker --gapplication-service"
 
 spawn-at-startup "vicinae" "server"
 
@@ -142,10 +148,6 @@ window-rule {
         off
     }
 }
-// window-rule {
-//     match app-id=r#"^steam_app_0"#
-//     open-maximized-to-edges true
-// }
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
@@ -179,7 +181,6 @@ gestures {
          off
     }
 }
-
 
 recent-windows {
     debounce-ms 750
@@ -224,21 +225,35 @@ binds {
     Mod+Shift+Space repeat=false { toggle-overview; }
     Mod+Space repeat=false hotkey-overlay-title="App Launcher" { spawn "walker"; }
     Mod+P repeat=false hotkey-overlay-title="Power Menu" { spawn-sh "vicinae 'vicinae://extensions/vicinae/power'"; }
+    Mod+Shift+B repeat=false { spawn-sh "~/.config/niri/scripts/toggle-waybar.sh'"; }
 
 
     // Function Keys
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "swayosd-client --output-volume raise --max-volume 100"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "swayosd-client --output-volume lower --max-volume 100"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "swayosd-client --output-volume mute-toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "swayosd-client --input-volume mute-toggle"; }
 
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "swayosd-client --playerctl play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "swayosd-client --playerctl stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "swayosd-client --playerctl previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "swayosd-client --playerctl next"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "swayosd-client --brightness +10"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --brightness -10"; }
+
+    // XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    // XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    // XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    // XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    // XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
+    // XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    // XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+
+    // XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     // Navigation
     Mod+Left  { focus-column-left; }

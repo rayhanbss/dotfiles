@@ -9,6 +9,9 @@ DOTFILES_DIR="$HOME/dotfiles"
 
 # .config list
 DOT_CONFIGS=(
+    "swayosd"
+    "dunst"
+    "zsh"
     "walker"
     "ironbar"
     "zed"
@@ -94,11 +97,6 @@ add_config() {
 
         # Add to this script file
         sed -i "/DOT_CONFIGS=(/a\\    \"$new_config\"" "$0"
-    "walker"
-    "ironbar"
-    "zed"
-    "vibepanel"
-    "kitty"
         echo "✓ Added '$new_config' to DOT_CONFIGS. Restart script to use."
 
     elif [ "$config_type" = "home" ]; then

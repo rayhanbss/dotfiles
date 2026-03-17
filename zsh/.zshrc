@@ -10,6 +10,7 @@ fi
 export SSD="/run/media/hann/Rayhan/"
 export PROJ="/run/media/hann/Rayhan/Project"
 export PATH="$HOME/.local/bin:$PATH"
+export _JAVA_AWT_WM_NONREPARENTING="1"
 
 # Directory to store Zinit and its plugins
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
@@ -34,13 +35,13 @@ zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-you-should-use
 
 # Add snippets
-# zinit snippet OMZP::git
+zinit snippet OMZP::git
 # zinit snippet OMZP::npm
 # zinit snippet OMZP::nvm
 # zinit snippet OMZP::sudo
 zinit snippet OMZP::docker
 # zinit snippet OMZP::archlinux
-# zinit snippet OMZP::docker-compose
+zinit snippet OMZP::docker-compose
 zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -81,5 +82,5 @@ alias cl="clear"
 alias zed="zeditor"
 alias bun="bun --bun"
 alias bunx="bunx --bun"
-alias docker-engine start "sudo systemctl start docker"
-alias docker-engine stop  "sudo systemctl stop docker"
+alias docker-start "sudo systemctl start docker"
+alias docker-stop  "sudo systemctl stop docker"
