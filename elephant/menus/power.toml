@@ -1,0 +1,28 @@
+name = "powermenu"
+name_pretty = "Power Menu"
+icon = "system-shutdown"
+
+[[entries]]
+text = "Shutdown"
+icon = "system-shutdown"
+actions = { "use" = "systemctl poweroff" }
+
+[[entries]]
+text = "Reboot"
+icon = "system-reboot"
+actions = { "use" = "systemctl reboot" }
+
+[[entries]]
+text = "Suspend"
+icon = "system-suspend"
+actions = { "use" = "systemctl suspend" }
+
+[[entries]]
+text = "Lock"
+icon = "system-lock-screen"
+actions = { "use" = "loginctl lock-session" }
+
+[[entries]]
+text = "Logout"
+icon = "system-log-out"
+actions = { "use" = "loginctl terminate-user $USER" }
