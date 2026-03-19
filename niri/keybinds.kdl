@@ -10,6 +10,7 @@ binds {
     // Essentials
     Mod+W repeat=false { close-window; }
     Mod+Shift+Space repeat=false { toggle-overview; }
+    Mod+L repeat=false hotkey-overlay-title="Lock Screen" { spawn "swaylock"; }
 
     Mod+Space repeat=false hotkey-overlay-title="App Launcher" { spawn-sh "rofi -show drun || pkill rofi"; }
     Mod+P repeat=false hotkey-overlay-title="Power Menu" { spawn-sh "walker -m menus:powermenu -n --theme powermenu"; }
@@ -38,10 +39,10 @@ binds {
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
+    // Mod+H     { focus-column-left; }
+    // Mod+J     { focus-window-down; }
+    // Mod+K     { focus-window-up; }
+    // Mod+L     { focus-column-right; }
 
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Down  { move-window-down; }

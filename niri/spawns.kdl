@@ -1,5 +1,6 @@
 // Wallpaper
 spawn-at-startup "swaybg" "-i" "Pictures/Wallpapers/Wallpaper.png"
+spawn-sh-at-startup "swayidle -w timeout 300 'niri msg action power-off-monitors' timeout 120 'swaylock -f' before-sleep 'swaylock -f'"
 
 // Bar
 spawn-at-startup "waybar"
