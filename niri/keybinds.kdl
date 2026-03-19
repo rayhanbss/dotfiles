@@ -13,7 +13,7 @@ binds {
     Mod+L repeat=false hotkey-overlay-title="Lock Screen" { spawn "swaylock"; }
 
     Mod+Space repeat=false hotkey-overlay-title="App Launcher" { spawn-sh "rofi -show drun || pkill rofi"; }
-    Mod+P repeat=false hotkey-overlay-title="Power Menu" { spawn-sh "walker -m menus:powermenu -n --theme powermenu"; }
+    Mod+P repeat=false hotkey-overlay-title="Power Menu" { spawn-sh "rofi -modi \"powermenu:~/.local/bin/powermenu.sh\" -show powermenu -theme ~/.config/rofi/powermenu.rasi"; }
 
     Mod+Shift+B repeat=false { spawn-sh "~/.config/niri/scripts/toggle-waybar.sh'"; }
 
