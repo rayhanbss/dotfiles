@@ -1,0 +1,9 @@
+// Wallpaper
+spawn-at-startup "swaybg" "-i" "Pictures/Wallpapers/Wallpaper.png"
+
+// Bar
+spawn-at-startup "waybar"
+
+// Notification and OSD
+spawn-at-startup "dunst"
+spawn-at-startup "swayosd-server"

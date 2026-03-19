@@ -1,0 +1,22 @@
+input {
+    keyboard {
+        xkb {
+        }
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {}
+
+    trackpoint {}
+
+    tablet {
+        map-to-output "eDP-1"
+    }
+
+    warp-mouse-to-focus
+}

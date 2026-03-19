@@ -15,7 +15,6 @@
         "network",
         "pulseaudio",
         "cpu",
-        "battery",
     ],
 
     "niri/workspaces": {
@@ -38,22 +37,22 @@
 
     "custom/logo": {
         "format": "󰣇",
-        "on-click": "rofi",
+        "on-click": "rofi -show drun || pkill rofi",
         "tooltip-format": "App launcher",
     },
 
     "cpu": {
         "interval": 5,
         "format": "󰍛",
-        "on-click": "omarchy-launch-or-focus-tui btop",
-        "on-click-right": "alacritty",
+        "on-click": "tui.sh btop",
+        "on-click-right": "",
     },
 
     "clock": {
         "format": "{:L%A %H:%M}",
         "format-alt": "{:L%d %B W%V %Y}",
         "tooltip": false,
-        "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
+        "on-click-right": "tui.sh calcurse",
     },
 
     "network": {
@@ -62,12 +61,12 @@
         "format-wifi": "{icon}",
         "format-ethernet": "󰀂",
         "format-disconnected": "󰤮",
-        "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-wifi": "{essid} ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
         "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-disconnected": "Disconnected",
         "interval": 3,
         "spacing": 1,
-        "on-click": "omarchy-launch-wifi",
+        "on-click": "tui.sh impala",
     },
 
     "battery": {
@@ -98,13 +97,13 @@
         "format-connected": "󰂱",
         "format-no-controller": "",
         "tooltip-format": "Devices connected: {num_connections}",
-        "on-click": "omarchy-launch-bluetooth",
+        "on-click": "tui.sh bluetui",
     },
 
     "pulseaudio": {
         "format": "{icon}",
-        "on-click": "omarchy-launch-audio",
-        "on-click-right": "pamixer -t",
+        "on-click": "tui.sh wiremix -v output",
+        "on-click-right": "",
         "tooltip-format": "Playing at {volume}%",
         "scroll-step": 5,
         "format-muted": "",

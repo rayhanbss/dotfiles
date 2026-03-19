@@ -9,7 +9,7 @@ fi
 # Path
 export SSD="/run/media/hann/Rayhan/"
 export PROJ="/run/media/hann/Rayhan/Project"
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export _JAVA_AWT_WM_NONREPARENTING="1"
 
 # Directory to store Zinit and its plugins
