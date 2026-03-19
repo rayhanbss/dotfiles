@@ -44,7 +44,7 @@
     "cpu": {
         "interval": 5,
         "format": "󰍛",
-        "on-click": "tui.sh btop",
+        "on-click": "~/.local/bin/tui.sh btop",
         "on-click-right": "",
     },
 
@@ -52,7 +52,7 @@
         "format": "{:L%A %H:%M}",
         "format-alt": "{:L%d %B W%V %Y}",
         "tooltip": false,
-        "on-click-right": "tui.sh calcurse",
+        "on-click-right": "~/.local/bin/tui.sh calcurse",
     },
 
     "network": {
@@ -66,7 +66,7 @@
         "tooltip-format-disconnected": "Disconnected",
         "interval": 3,
         "spacing": 1,
-        "on-click": "tui.sh impala",
+        "on-click": "~/.local/bin/tui.sh impala",
     },
 
     "battery": {
@@ -97,12 +97,12 @@
         "format-connected": "󰂱",
         "format-no-controller": "",
         "tooltip-format": "Devices connected: {num_connections}",
-        "on-click": "tui.sh bluetui",
+        "on-click": "~/.local/bin/tui.sh bluetui",
     },
 
     "pulseaudio": {
         "format": "{icon}",
-        "on-click": "tui.sh wiremix -v output",
+        "on-click": "~/.local/bin/tui.sh wiremix -v output",
         "on-click-right": "",
         "tooltip-format": "Playing at {volume}%",
         "scroll-step": 5,

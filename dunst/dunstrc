@@ -7,7 +7,7 @@
     width = (240, 360)
     height = (0, 300)
     origin = top-right
-    offset = (8, 8)
+    offset = (7, 7)
     scale = 0
     notification_limit = 5
 
@@ -424,3 +424,7 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+[whatsapp-web]
+    desktop_entry = "brave-browser"
+    summary = "*"
+    format = "<b>%s</b> %b"

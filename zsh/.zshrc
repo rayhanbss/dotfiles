@@ -33,9 +33,10 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-you-should-use
+zinit light wfxr/forgit
 
 # Add snippets
-zinit snippet OMZP::git
+# zinit snippet OMZP::forgit
 # zinit snippet OMZP::npm
 # zinit snippet OMZP::nvm
 # zinit snippet OMZP::sudo
@@ -72,6 +73,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:git-*:*' fzf-preview 'git -c color.status=always status --short 2>/dev/null || echo "Not a git repo"'
+zstyle ':fzf-tab:complete:forgit-*:*' fzf-preview 'git log --oneline --color=always -20 2>/dev/null'
+
 
 # Aliases
 alias ls="eza --icons=always"
@@ -82,5 +86,5 @@ alias cl="clear"
 alias zed="zeditor"
 alias bun="bun --bun"
 alias bunx="bunx --bun"
-alias docker-start "sudo systemctl start docker"
-alias docker-stop  "sudo systemctl stop docker"
+alias docker-start="sudo systemctl start docker"
+alias docker-stop="sudo systemctl stop docker"
