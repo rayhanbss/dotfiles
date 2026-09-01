@@ -5,27 +5,6 @@ window-rule {
 window-rule {
     match title="^Picture in picture$"
     match title="^Zed — Settings$"
-    open-floating true
-}
-
-window-rule {
-    match app-id="bluetui"
-    match app-id="calcurse"
-    match app-id="impala"
-    match app-id="wiremix"
-    open-floating true
-    default-column-width { fixed 800; }
-    default-window-height { fixed 800; }
-}
-
-window-rule {
-    match app-id="btop"
-    open-floating true
-    default-column-width { fixed 1000; }
-    default-window-height { fixed 800; }
-}
-
-window-rule {
     match app-id=r#"^com-evacipated-cardcrawl-modthespire-Loader"#
     open-floating true
 }
@@ -33,7 +12,7 @@ window-rule {
 window-rule {
     match app-id=r#"^mpv"#
     match app-id=r#"^steam"#
-    match app-id=r#"^brave-browser"#
+    match app-id=r#"^helium"#
     open-maximized true
 }
 
@@ -45,12 +24,12 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 8
     clip-to-geometry true
     draw-border-with-background false
 }
 
 layer-rule {
-  match namespace="^wallpapers*"
+  match namespace="^noctalia-wallpaper"
   place-within-backdrop true
 }

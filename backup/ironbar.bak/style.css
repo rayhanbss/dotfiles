@@ -1,0 +1,99 @@
+:root {
+    --color-background: #1D1D1D;
+    --color-highlight: #2D2D2D;
+    --color-primary: #FDFDFD;
+    --color-secondary: #5D5D5D;
+    --color-urgent: #8f0a0a;
+
+    --margin-lg: 1em;
+    --margin-sm: 0.5em;
+}
+
+* {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background-image: none;
+    font-family: "GeistMono Nerd Font Propo";
+    font-size: 10px;
+}
+
+scale > trough {
+    background-color: var(--color-background);
+}
+
+scale > trough > highlight {
+    background-color: var(--color-highlight);
+}
+
+scale > trough > slider {
+    background-color: var(--color-secondary);
+}
+
+switch > slider {
+    background-color: var(--color-secondary);
+}
+
+switch:checked {
+    background-color: var(--color-secondary);
+}
+
+switch:not(:checked) {
+    background-color: var(--color-background);
+}
+
+#bar,
+popover,
+popover contents,
+calendar {
+    background-color: var(--color-background);
+}
+
+box,
+button,
+label {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+button {
+    padding-left: var(--margin-sm);
+    padding-right: var(--margin-sm);
+}
+
+button:hover,
+button:active {
+    background-color: var(--color-secondary);
+}
+
+#end > * + * {
+    margin-right: var(--margin-lg);
+}
+
+.clock {
+    font-weight: bold;
+}
+
+.popup-clock .calendar-clock {
+    font-size: 2em;
+}
+
+.popup-clock .calendar .today {
+    background-color: var(--color-active);
+}
+
+.workspaces .item.visible {
+    color: var(--color-secondary);
+}
+
+.workspaces .item.focused {
+    color: var(--color-primary);
+}
+
+.workspaces .item.urgent {
+    color: var(--color-urgent);
+}
+
+.bar {
+  min-height: 0px;
+}

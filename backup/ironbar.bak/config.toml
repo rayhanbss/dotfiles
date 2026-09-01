@@ -1,0 +1,12 @@
+position = "top"
+height = 20
+
+[[start]]
+type = "workspaces"
+
+[[end]]
+type = "tray"
+
+[[end]]
+type = "clock"
+format = "%H:%M"

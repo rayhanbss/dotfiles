@@ -81,10 +81,29 @@ zstyle ':fzf-tab:complete:forgit-*:*' fzf-preview 'git log --oneline --color=alw
 alias ls="eza --icons=always"
 alias ll="eza -lhas ext --icons=always"
 alias cat="bat"
-alias dot="~/dotfiles/dotfiles.sh"
 alias cl="clear"
 alias zed="zeditor"
+alias z="zeditor"
 alias bun="bun --bun"
 alias bunx="bunx --bun"
-alias docker-start="sudo systemctl start docker"
-alias docker-stop="sudo systemctl stop docker"
+alias dcst="sudo systemctl start docker"
+alias dcsp="sudo systemctl stop docker"
+
+# Zoxide
+zoxide-cdi-widget() {
+  cdi
+  zle reset-prompt
+}
+zle -N zoxide-cdi-widget
+
+# Keybind
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+bindkey '^F' zoxide-cdi-widget
+
+# bun completions
+[ -s "/home/hann/.bun/_bun" ] && source "/home/hann/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
