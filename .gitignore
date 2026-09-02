@@ -1,0 +1,10 @@
+.fish_history
+completions/
+functions/fisher.fish
+conf.d/
+.DS_Store
+Thumbs.db
+*.log
+.cache/
+fish_variables
+completions/_*
